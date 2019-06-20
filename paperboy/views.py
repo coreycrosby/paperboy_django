@@ -13,3 +13,9 @@ def deliver(request, id):
     ad2 = request.POST['address2']
     pb.deliver(int(ad1), int(ad2))
     return HttpResponseRedirect('/')
+
+def paperboy_details(request, id):
+    pb = get_object_or_404(Paperboy, id=id)
+    return render(request, 'paperboy.html', {'paperboy': pb})
+
+
